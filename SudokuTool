@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class SudokuTool {
+    public static void main(String[] args)
+    {
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter the Sudoku board (row by row, 9 numbers per row, use 0 for empty cells):");
+        int[][] board = new int[9][9];
+        for(int i=0;i<9;i++)
+        {
+            System.out.println("Enter row"+(i+1)+"(seperate numbers with spaces)");
+            for(int j=0;j<9;j++)
+            {
+                board[i][j]=sc.nextInt();
+            }
+            System.out.println();
+        }
+        System.out.println("\nInitial Board:");
+        printboard(board);
+        sc.close();
+    }
+    public static void printboard(int[][] board)
+    {
+        for (int[] row : board) {
+            for (int num : row) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
