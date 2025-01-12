@@ -64,7 +64,7 @@ public class SudokuTool {
             {
                 return false;
             }
-            if(num!=0 && seenNum.add(num))
+            if(num!=0 && !seenNum.add(num))
             {
                 return false;
             }
@@ -80,7 +80,7 @@ public class SudokuTool {
             {
                 return false;
             }
-            if(num!=0 && seenNum.add(num))
+            if(num!=0 && !seenNum.add(num))
             {
                 return false;
             }
@@ -137,7 +137,25 @@ public class SudokuTool {
     }
     public static boolean isSafe(int[][] board, int row, int col, int num)
     {
-        
+        for(int i=0;i<9;i++){
+            if(board[row][i]==num||board[i][col]==num)
+            {
+                return false;
+            }
+        }
+        int startRow=(row/3)*3;
+        int startCol=(col/3)*3;
+        for(int i=startRow;i<startRow+3;i++)
+        {
+            for(int j=startCol;j<startCol+3;j++)
+            {
+                if(board[i][j]==num)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
 
