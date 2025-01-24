@@ -23,14 +23,18 @@ public class ArrayStatisticsVisualizer {
 
         f.add(calculate,BorderLayout.CENTER);
         f.add(new JScrollPane(result),BorderLayout.SOUTH);
-        f.add(inputlabel);
-        f.add(inputfield);
-        f.add(result);
-        f.add(calculate);
+        
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
         f.setVisible(true);
         
-
+        calculate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String input=inputfield.getText();
+                try{
+                    
+                }
+        });
         // Scanner sc=new Scanner(System.in);
         // System.out.println("-Array Statistics Visualizer-");
         // System.out.println("Enter the size of the array:");
