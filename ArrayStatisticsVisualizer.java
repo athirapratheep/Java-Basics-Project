@@ -32,7 +32,12 @@ public class ArrayStatisticsVisualizer {
             public void actionPerformed(ActionEvent e) {
                 String input=inputfield.getText();
                 try{
-                    
+                    int[] arr=  Arrays.stream(input.split(",")).mapToInt(Integer::parseInt).toArray();
+
+                    double mean=calculateMean(arr);
+                    double median=calculateMedian(arr);
+                    ArrayList<Integer> mode=calculateMode(arr);
+                    int range=calculateRange(arr);
                 }
         });
         // Scanner sc=new Scanner(System.in);
