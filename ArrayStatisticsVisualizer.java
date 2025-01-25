@@ -12,8 +12,8 @@ public class ArrayStatisticsVisualizer {
         JLabel inputlabel = new JLabel("Enter array elements");
         JTextField inputfield= new JTextField();
         JButton calculate = new JButton("Calculate statistics");
-        JTextArea result=new JTextArea();
-        result.setEditable(false);
+        JTextArea resultArea=new JTextArea();
+        resultArea.setEditable(false);
         f.setLayout(new BorderLayout());
 
         JPanel toppanel=new JPanel(new BorderLayout());
@@ -22,7 +22,7 @@ public class ArrayStatisticsVisualizer {
         f.add(toppanel,BorderLayout.NORTH);
 
         f.add(calculate,BorderLayout.CENTER);
-        f.add(new JScrollPane(result),BorderLayout.SOUTH);
+        f.add(new JScrollPane(resultArea),BorderLayout.SOUTH);
         
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
         f.setVisible(true);
@@ -38,6 +38,21 @@ public class ArrayStatisticsVisualizer {
                     double median=calculateMedian(arr);
                     ArrayList<Integer> mode=calculateMode(arr);
                     int range=calculateRange(arr);
+                    int max=calculateMax(arr);
+                    int min=calculateMin(arr);
+
+                    StringBuilder result= new StringBuilder();
+                    result.append("Array Statistics: \n");
+                    result.append("Mean: ").append(mean).append("\n"); //Mean: value
+                    result.append("Median: ").append(median).append("\n");
+                    result.append("Range: ").append(range).append("\n");
+                    result.append("Max: ").append(max).append("\n");
+                    result.append("Min: ").append(min).append("\n");
+                    result.append("Mode: ").append(mode.isEmpty()? "No mode":mode).append("\n"); //ternary operator usage
+
+                    resultArea.setText(result.toString());
+                }catch(Exception ex){
+                    JOptionPane
                 }
         });
         // Scanner sc=new Scanner(System.in);
