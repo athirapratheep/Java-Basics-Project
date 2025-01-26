@@ -73,7 +73,24 @@ public class ArrayStatisticsVisualizer {
             return arr[n/2];
         }
     }
-    
+    private static ArrayList<Integer> calculateMode(int[] arr)
+    {
+
+    }
+    private static int calculateRange(int[] arr)
+    {
+        int min=Arrays.stream(arr).min().orElse(0);
+        int max=Arrays.stream(arr).max().orElse(0);
+        return max-min;
+    }
+    private static OptionalInt calculateMax(int[] arr)
+    {
+        return Arrays.stream(arr).max();
+    }
+    private static OptionalInt calculateMin(int[] arr)
+    {
+        return Arrays.stream(arr).min();
+    }
 
         // Scanner sc=new Scanner(System.in);
         // System.out.println("-Array Statistics Visualizer-");
