@@ -52,9 +52,29 @@ public class ArrayStatisticsVisualizer {
 
                     resultArea.setText(result.toString());
                 }catch(Exception ex){
-                    JOptionPane
+                    JOptionPane.showMessageDialog(f,"Invalid Input");
                 }
+            }
         });
+    }
+    private static double calculateMean(int[] arr)
+    {
+        return Arrays.stream(arr).average().orElse(0.0); //average=sum of all elements/no.of elements
+    }
+    private static double calculateMedian(int[] arr)
+    {
+        Arrays.sort(arr);
+        int n=arr.length;
+        if(n%2==0)
+        {
+            return ((arr[n/2-1]+arr[n/2])/2.0);
+        }
+        else{
+            return arr[n/2];
+        }
+    }
+    
+
         // Scanner sc=new Scanner(System.in);
         // System.out.println("-Array Statistics Visualizer-");
         // System.out.println("Enter the size of the array:");
@@ -67,5 +87,5 @@ public class ArrayStatisticsVisualizer {
         // }
         // System.out.println(" Menu:");
 
-    }
-}   
+}
+  
