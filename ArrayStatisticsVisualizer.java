@@ -57,9 +57,9 @@ public class ArrayStatisticsVisualizer {
             }
         });
     }
-    private static double calculateMean(int[] arr)
+    private static int calculateMean(int[] arr)
     {
-        return Arrays.stream(arr).average().orElse(0.0); //average=sum of all elements/no.of elements
+        return (int)(Arrays.stream(arr).average().orElse(0.0)); //average=sum of all elements/no.of elements
     }
     private static double calculateMedian(int[] arr)
     {
@@ -75,6 +75,25 @@ public class ArrayStatisticsVisualizer {
     }
     private static ArrayList<Integer> calculateMode(int[] arr)
     {
+        Map<Integer,Integer> freqmap=new HashMap<>();
+        for(int num:arr)
+        {
+            freqmap.put(num,freqmap.getOrDefault(num,0)+1);
+        }
+        int maxfreq=Collections.max(freqmap.values());
+        if(maxfreq==1)
+        {
+            return new ArrayList<>(); //no mode. so returns an empty list
+        }
+        ArrayList<Integer> modes=new ArrayList<>();
+        for(Map.Entry<Integer,Integer> entry:freqmap.entrySet())
+        {
+            if(entry.getValue()==maxfreq)
+            {
+                modes.add(entry.getKey());
+            }
+        }
+        return modes;
 
     }
     private static int calculateRange(int[] arr)
@@ -83,26 +102,12 @@ public class ArrayStatisticsVisualizer {
         int max=Arrays.stream(arr).max().orElse(0);
         return max-min;
     }
-    private static OptionalInt calculateMax(int[] arr)
+    private static int calculateMax(int[] arr)
     {
-        return Arrays.stream(arr).max();
+        return Arrays.stream(arr).max().orElse(0);
     }
-    private static OptionalInt calculateMin(int[] arr)
+    private static int calculateMin(int[] arr)
     {
-        return Arrays.stream(arr).min();
+        return Arrays.stream(arr).min().orElse(0);
     }
-
-        // Scanner sc=new Scanner(System.in);
-        // System.out.println("-Array Statistics Visualizer-");
-        // System.out.println("Enter the size of the array:");
-        // int n=sc.nextInt();
-        // int[] arr=new int[n];
-        // System.out.println("Enter the elements of the array:");
-        // for(int i=0;i<n;i++)
-        // {
-        //     arr[i]=sc.nextInt();
-        // }
-        // System.out.println(" Menu:");
-
 }
-  
