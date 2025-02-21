@@ -1,6 +1,7 @@
 # Array-Operations-Tool-Java
 We are creating a java program that performs various operations on a 1D array based on user input.
 The Array Operation Tool is a Java-based console application that allows users to perform various operations on an integer array. The tool provides a user-friendly menu to add, delete, search, reverse, sort, and display array elements, making it a great utility for practicing array manipulations and improving programming skills.
+
 Features:
 
     Add an element at a specific position.
@@ -18,6 +19,7 @@ Technologies Used:
 Programming Language: Java
 
 Development Environment: Any IDE or text editor that supports Java (e.g., IntelliJ IDEA, Eclipse, Visual Studio Code).
+
 
 Key Functions:
 
